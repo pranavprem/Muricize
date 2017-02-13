@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.unit401.pranav.muricize.NameFinder">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/first_name_here"
+        android:gravity="center"
+        android:textSize="50dp"
+        android:ems="10"
+        android:id="@+id/nameEditText"
+        android:layout_marginTop="113dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGender"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:id="@+id/radioButton"
+            android:text="@string/radio_male"
+            android:textSize="30dp"
+            android:checked="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton2"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:text="@string/radio_female"/>
+
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ButtonValue"
+        android:id="@+id/submitButton"
+        android:onClick="sendMessage"
+        android:elevation="12dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:layout_below="@+id/radioGender"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="81dp" />
+
+</RelativeLayout>

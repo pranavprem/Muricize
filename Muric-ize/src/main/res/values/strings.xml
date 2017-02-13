@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Muricize</string>
+    <string name="radio_male">Male</string>
+    <string name="radio_female">Female</string>
+    <string name="font_family_light">sans-serif-light</string>
+    <string name="font_family_medium">sans-serif-medium</string>
+    <string name="font_family_regular">sans-serif</string>
+    <string name="font_family_condensed">sans-serif-condensed</string>
+    <string name="font_family_black">sans-serif-black</string>
+    <string name="font_family_thin">sans-serif-thin</string>
+    <string name="ButtonValue">\'Muric-ize!!</string>
+    <string name="first_name_here">First Name Here</string>
+</resources>
