@@ -15,7 +15,8 @@
         android:inputType="textPersonName"
         android:hint="@string/first_name_here"
         android:gravity="center"
-        android:textSize="50dp"
+        android:autofillHints="personGivenName"
+        android:textSize="50sp"
         android:ems="10"
         android:id="@+id/nameEditText"
         android:layout_marginTop="113dp"
@@ -34,8 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
             android:id="@+id/radioButton"
+            android:tag="Male"
             android:text="@string/radio_male"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:checked="true" />
 
         <RadioButton
@@ -43,7 +45,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/radioButton2"
             android:layout_weight="1"
-            android:textSize="30dp"
+            android:tag="Female"
+            android:textSize="30sp"
             android:text="@string/radio_female"/>
 
 

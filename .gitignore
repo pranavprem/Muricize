@@ -1,8 +1,26 @@
+# Gradle
+.gradle/
+build/
+captures/
+
+# Android SDK location and build output. Never commit these.
+local.properties
+*.apk
+*.aab
+*.ap_
+*.dex
+output-metadata.json
+
+# Android Studio / IntelliJ
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
+projectFilesBackup/
+
+# Native build leftovers
+.externalNativeBuild/
+.cxx/
+
+# OS / crash dumps
 .DS_Store
-/build
-/captures
+Thumbs.db
+*.hprof

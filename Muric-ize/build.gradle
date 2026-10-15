@@ -1,27 +1,50 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'com.diffplug.spotless'
+}
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    namespace 'com.unit401.pranav.muricize'
+    compileSdk 37
+
     defaultConfig {
-        applicationId "com.unit401.pranav.muricize"
-        minSdkVersion 19
-        targetSdkVersion 23
+        applicationId 'com.unit401.pranav.muricize'
+        // AndroidX AppCompat 1.8 requires API 23. The 2017 project targeted API 19.
+        minSdk 23
+        targetSdk 37
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
     }
+
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors {
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError true
+        checkReleaseBuilds true
     }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.1'
+    implementation 'androidx.appcompat:appcompat:1.8.0'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+spotless {
+    java {
+        target 'src/**/*.java'
+        googleJavaFormat('1.36.1').aosp()
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
 }
