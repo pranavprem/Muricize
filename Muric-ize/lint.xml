@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <!-- The three-second eagle screen is the product. The Android 12 splash API would replace it. -->
+    <issue id="CustomSplashScreen" severity="ignore" />
+
+    <!-- The 2017 launcher art is a full-bleed square. Leave it instead of cropping an adaptive icon. -->
+    <issue id="IconLauncherShape" severity="ignore" />
+
+    <!-- The splash photo lives in drawable/ so the original density scaling still fills the screen. -->
+    <issue id="IconLocation" severity="ignore" />
+
+    <!-- The splash paints the same photo on the window and on the image view. That is the original screen. -->
+    <issue id="Overdraw" severity="ignore" />
+
+    <!-- Gradle stays on 9.6.0, the version AGP 9.4.1 requires, instead of floating to a newer release. -->
+    <issue id="AndroidGradlePluginVersion" severity="ignore" />
+</lint>

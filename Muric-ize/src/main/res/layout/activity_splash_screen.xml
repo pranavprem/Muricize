@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/muricize"
-        android:background="@drawable/muricize" />
+        android:background="@drawable/muricize"
+        android:contentDescription="@string/app_name" />
 
 </RelativeLayout>

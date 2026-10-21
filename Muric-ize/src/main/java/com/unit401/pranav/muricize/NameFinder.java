@@ -1,37 +1,49 @@
 package com.unit401.pranav.muricize;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import com.unit401.pranav.muricize.beans.Name;
 
 public class NameFinder extends AppCompatActivity {
 
-    public static String EXTRA_MESSAGE="";
+    public static final String EXTRA_MESSAGE = "com.unit401.pranav.muricize.EXTRA_MESSAGE";
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_name_finder);
     }
 
     public void sendMessage(View view) {
-        RadioGroup radioGenderGroup = (RadioGroup) findViewById(R.id.radioGender);
+        RadioGroup radioGenderGroup = findViewById(R.id.radioGender);
+        EditText editText = findViewById(R.id.nameEditText);
+        int selectedId = radioGenderGroup.getCheckedRadioButtonId();
+        if (selectedId == -1) {
+            Toast.makeText(this, R.string.choose_gender, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        RadioButton genderSelected = findViewById(selectedId);
+        Object genderTag = genderSelected.getTag();
+        if (genderTag == null) {
+            Toast.makeText(this, R.string.choose_gender, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String normalized = Name.normalize(editText.getText().toString());
+        if (normalized.isEmpty()) {
+            Toast.makeText(this, R.string.enter_first_name, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Intent intent = new Intent(this, DisplayResult.class);
-        EditText editText = (EditText) findViewById(R.id.nameEditText);
-        RadioButton genderSelected = (RadioButton) findViewById(radioGenderGroup.getCheckedRadioButtonId());
-        String message = editText.getText().toString() + "," +genderSelected.getText();
-        intent.putExtra(EXTRA_MESSAGE,message);
-
-
+        intent.putExtra(EXTRA_MESSAGE, normalized + "," + genderTag);
         startActivity(intent);
-
     }
 }

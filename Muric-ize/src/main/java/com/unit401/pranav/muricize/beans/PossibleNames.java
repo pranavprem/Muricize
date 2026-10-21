@@ -1,26 +1,26 @@
 package com.unit401.pranav.muricize.beans;
 
-/**
- * Created by Pranav on 11-02-2017.
- */
-
+/** Created by Pranav on 11-02-2017. */
 public class PossibleNames {
 
-    String possibility;
-    Integer match;
+    private final String possibility;
+    private final int match;
 
+    public PossibleNames(String americanName, int match) {
+        this.possibility = americanName;
+        this.match = match;
+    }
 
-    public PossibleNames(String americanName, Integer match2) {
-        // TODO Auto-generated constructor stub
-        this.possibility=americanName;
-        this.match=match2;
+    public String getPossibility() {
+        return possibility;
+    }
+
+    public int getMatch() {
+        return match;
     }
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return this.possibility+"  (Score= "+this.match+")";
+        return this.possibility + "  (Score= " + this.match + ")";
     }
-
-
 }
